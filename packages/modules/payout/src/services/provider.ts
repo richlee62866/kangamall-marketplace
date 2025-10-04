@@ -48,8 +48,8 @@ export class PayoutProvider implements IPayoutProvider {
     // });
 
     // ✅ Correct - with API key
-const stripe = new Stripe(process.env.STRIPE_API_KEY, {
-  apiVersion: '2023-10-16', // Use appropriate version
+this.client = new Stripe(process.env.STRIPE_API_KEY, {
+  apiVersion: "2025-02-24.acacia",
 });
   }
 
