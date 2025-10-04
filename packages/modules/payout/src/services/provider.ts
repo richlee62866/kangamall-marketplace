@@ -23,30 +23,32 @@ type InjectedDependencies = {
   configModule: ConfigModule;
 };
 
-type StripeConnectConfig = {
-  apiKey: string;
-  webhookSecret: string;
-};
+// type StripeConnectConfig = {
+//   apiKey: string;
+//   webhookSecret: string;
+// };
 
 export class PayoutProvider implements IPayoutProvider {
-  protected readonly config_: StripeConnectConfig;
+  // protected readonly config_: StripeConnectConfig;
   protected readonly logger_: Logger;
-  protected readonly client_: Stripe;
+  // protected readonly client_: Stripe;
 
-  constructor({ logger, configModule }: InjectedDependencies) {
+  // constructor({ logger, configModule }: InjectedDependencies) {
+  constructor({ logger }: InjectedDependencies) {
     this.logger_ = logger;
+    this.logger_.info("PayoutProvider running in dummy mode — Stripe disabled.");
 
-    const moduleDef = configModule.modules?.[PAYOUT_MODULE];
-    if (typeof moduleDef !== "boolean" && moduleDef?.options) {
-      this.config_ = {
-        apiKey: moduleDef.options.apiKey as string,
-        webhookSecret: moduleDef.options.webhookSecret as string,
-      };
-    }
+    // const moduleDef = configModule.modules?.[PAYOUT_MODULE];
+    // if (typeof moduleDef !== "boolean" && moduleDef?.options) {
+    //   this.config_ = {
+    //     apiKey: moduleDef.options.apiKey as string,
+    //     webhookSecret: moduleDef.options.webhookSecret as string,
+    //   };
+    // }
 
-    this.client_ = new Stripe(this.config_.apiKey, {
-      apiVersion: "2025-02-24.acacia",
-    });
+    // this.client_ = new Stripe(this.config_.apiKey, {
+    //   apiVersion: "2025-02-24.acacia",
+    // });
   }
 
   async createPayout({
