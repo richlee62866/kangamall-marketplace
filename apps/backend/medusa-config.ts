@@ -33,13 +33,13 @@ module.exports = defineConfig({
       }
     },
     { resolve: '@mercurjs/commission' },
-    {
-      resolve: '@mercurjs/payout',
-      options: {
-        apiKey: process.env.STRIPE_SECRET_API_KEY,
-        webhookSecret: process.env.STRIPE_CONNECTED_ACCOUNTS_WEBHOOK_SECRET
-      }
-    },
+    // {
+    //   resolve: '@mercurjs/payout',
+    //   options: {
+    //     apiKey: process.env.STRIPE_SECRET_API_KEY,
+    //     webhookSecret: process.env.STRIPE_CONNECTED_ACCOUNTS_WEBHOOK_SECRET
+    //   }
+    // },
     {
       resolve: '@mercurjs/algolia',
       options: {
